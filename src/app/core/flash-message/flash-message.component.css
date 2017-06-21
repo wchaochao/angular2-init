@@ -1,0 +1,23 @@
+.flash-message {
+  position: fixed;
+  top: 6rem;
+  right: 4rem;
+  width: 19rem;
+  z-index: 90000;
+}
+
+.flash-message>li {
+  cursor: pointer;
+  overflow:hidden;
+}
+
+.flash-message-text {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.flash-message-text>.fa {
+  position: absolute;
+  top: 4px;
+  left: 0
+}

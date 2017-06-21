@@ -1,0 +1,9 @@
+<ul class="list-unstyled flash-message">
+  <li *ngFor="let message of messages" (click)="remove(message)" @flashInOut>
+    <div class="alert alert-{{message.type}}">
+      <div class="flash-message-text">
+        <i class="fa fa-{{message.icon}} fa-fw"></i>{{message.text}}
+      </div>
+    </div>
+  </li>
+</ul>

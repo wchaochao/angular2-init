@@ -1,0 +1,24 @@
+<ngx-datatable #ngxTable [rows]="rows" [columns]="columns" [columnMode]="columnMode" [headerHeight]="headerHeight"
+  [footerHeight]="footerHeight" [rowHeight]="rowHeight" [externalPaging]="true" [externalSorting]="true" [limit]="page.limit" [count]="page.count"
+  [offset]="page.offset" [messages]="messages" (page)="setPage($event)">
+  <ngx-datatable-footer>
+    <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+      let-curPage="curPage" let-offset="offset">
+      <div class="clearfix" *ngIf="rowCount>0">
+        <div class="pull-left">第&nbsp;{{curPage}}&nbsp;页，共&nbsp;{{page.pages}}&nbsp;页，总计&nbsp;{{rowCount}}&nbsp;条记录</div>
+        <div class="pull-right">
+          <span>每页</span>
+          <select class="form-control" [(ngModel)]="page.limit" (change)="search()">
+            <option *ngFor="let item of limits" [ngValue]="item">{{item}}</option>
+          </select>&nbsp;条
+        </div>
+        <div class="pull-right">
+          <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+            [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage" [size]="pageSize" [count]="rowCount" [hidden]="!((rowCount / pageSize) > 1)"
+            (change)="ngxTable.onFooterPage($event)">
+          </datatable-pager>
+        </div>
+      </div>
+    </ng-template>
+  </ngx-datatable-footer>
+</ngx-datatable>  

@@ -1,0 +1,6 @@
+<ol class="breadcrumb mb-4 {{addClass}}">
+  <li *ngFor="let nav of navs" class="breadcrumb-item" [class.active]="nav.active">
+    <a *ngIf="!nav.active" [routerLink]="nav.url">{{nav.title}}</a>
+    <span *ngIf="nav.active">{{nav.title}}</span>
+  </li>
+</ol>

@@ -1,1 +1,286 @@
-/* You can add global styles to this file, and also import other style files */
+/* global setting */
+
+html {
+  font-size: 14px;
+}
+
+
+/* background */
+
+.bg-white {
+  background-color: #fff;
+}
+
+
+/* border-radius */
+
+.not-rounded-top {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+
+/* form */
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  box-shadow: 0 0
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus,
+a:focus {
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* card */
+
+.card-header+.list-group {
+  margin-top: -1px;
+}
+
+
+/*spinner*/
+
+html,
+body {
+  height: 100%
+}
+
+.spinner-container {
+  height: 100%;
+  width: 100%;
+  background-color: #1abc9c;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -40px;
+  text-align: center;
+}
+
+.spinner>div {
+  background-color: #fff;
+  height: 100%;
+  width: 7px;
+  margin-right: 3px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.4)
+  }
+  20% {
+    -webkit-transform: scaleY(1.0)
+  }
+}
+
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+
+/* ngx-datatable */
+
+.ngx-datatable {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.ngx-datatable .datatable-header,
+.ngx-datatable .datatable-body .datatable-row-wrapper:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.ngx-datatable .datatable-header .datatable-header-cell,
+.ngx-datatable .datatable-body .datatable-body-cell,
+.ngx-datatable .datatable-body .empty-row {
+  padding: 8px;
+  line-height: 1.42857143;
+  border-bottom: 1px solid #ddd;
+}
+
+.ngx-datatable .datatable-body .empty-row {
+  text-align: center;
+  color: #777;
+}
+
+.ngx-datatable .datatable-body .progress-linear {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.ngx-datatable .datatable-body .progress-linear .container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  -webkit-transform: translate(0, 0) scale(1, 1);
+  transform: translate(0, 0) scale(1, 1);
+  background-color: #aad1f9;
+}
+
+.ngx-datatable .datatable-body .progress-linear .container .bar {
+  transition: all .2s linear;
+  -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: -webkit-transform .2s linear;
+  transition: transform .2s linear;
+  transition: transform .2s linear, -webkit-transform .2s linear;
+  background-color: #106cc8;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.ngx-datatable .datatable-footer {
+  font-size: 14px;
+  padding: 0 10px;
+  margin-top: -5px
+}
+
+.ngx-datatable .datatable-footer .clearfix {
+  width: 100%
+}
+
+.ngx-datatable .datatable-footer .pull-left {
+  line-height: 50px;
+}
+
+.ngx-datatable .datatable-footer .pull-right {
+  padding-top: 8px;
+  margin-left: 20px;
+}
+
+.ngx-datatable .datatable-footer .pull-right .form-control {
+  display: inline-block;
+  width: auto;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager,
+.ngx-datatable .datatable-footer .datatable-pager .pager li {
+  display: inline !important;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li a {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #428bca;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li a:hover,
+.ngx-datatable .datatable-footer .datatable-pager .pager li a:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li:first-child a {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li:last-child a {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li.active a,
+.ngx-datatable .datatable-footer .datatable-pager .pager li.active a:hover,
+.ngx-datatable .datatable-footer .datatable-pager .pager li.active a:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a,
+.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:hover,
+.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.datatable-icon-left:before {
+  content: "上一页";
+}
+
+.datatable-icon-right:before {
+  content: "下一页";
+}
+
+.datatable-icon-prev:before {
+  content: "首页";
+}
+
+.datatable-icon-skip:before {
+  content: "尾页";
+}

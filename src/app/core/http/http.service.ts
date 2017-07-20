@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, XHRBackend, RequestOptionsArgs } from '@angular/http';
+import { Http, XHRBackend, RequestOptions, RequestOptionsArgs } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 
-import { DefaultRequestOptions } from './default-request.options';
 import { LoaderService } from '../loader/loader.service';
 import { FlashMessageService } from '../flash-message/flash-message.service';
 
@@ -13,34 +12,19 @@ export class HttpService extends Http {
 
   constructor(
     backend: XHRBackend,
-    defaultOptions: DefaultRequestOptions,
+    defaultOptions: RequestOptions,
     private loaderService: LoaderService,
     private flashMessageService: FlashMessageService
   ) {
     super(backend, defaultOptions);
   }
 
-  private addRequest() {
+  private onStart() {
     this.loaderService.add();
   }
 
-  private subRequest() {
+  private onEnd() {
     this.loaderService.sub();
-  }
-
-  private addMessage(options: RequestOptionsArgs, type: string) {
-    const headers = options && options.headers;
-    if (headers == null) {
-      return;
-    }
-
-    const hasMessage = headers.has('message');
-    if (hasMessage && headers.get('message')[type] != null) {
-      this.flashMessageService.add({
-        type: type,
-        text: headers.get('message')[type]
-      });
-    }
   }
 
   private onCatch(error: Response | any) {
@@ -54,12 +38,19 @@ export class HttpService extends Http {
     return Observable.throw(errMsg);
   }
 
-  private onStart() {
-    this.addRequest();
-  }
+  private addMessage(options: RequestOptionsArgs, type: string) {
+    const headers = options && options.headers;
+    if (!headers) {
+      return;
+    }
 
-  private onEnd() {
-    this.subRequest();
+    const hasMessage = headers.has('message');
+    if (hasMessage && headers.get('message')[type]) {
+      this.flashMessageService.add({
+        type: type,
+        text: headers.get('message')[type]
+      });
+    }
   }
 
   private onSuccess(options: RequestOptionsArgs) {
@@ -70,11 +61,10 @@ export class HttpService extends Http {
     this.addMessage(options, 'danger');
   }
 
-  get(url: string, options?: RequestOptionsArgs): Observable<any> {
+  private process(observable: Observable<any>, options: RequestOptionsArgs): Observable<any> {
     this.onStart();
 
-    return super.get(url, options)
-      .catch(this.onCatch)
+    return observable.catch(this.onCatch)
       .do((res: Response) => {
         this.onSuccess(options);
       }, (error: any) => {
@@ -83,51 +73,22 @@ export class HttpService extends Http {
       .finally(() => {
         this.onEnd();
       });
+  }
+
+  get(url: string, options?: RequestOptionsArgs): Observable<any> {
+    return this.process(super.get(url, options), options);
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<any> {
-    this.onStart();
-
-    return super.delete(url, options)
-      .catch(this.onCatch)
-      .do((res: Response) => {
-        this.onSuccess(options);
-      }, (error: any) => {
-        this.onError(options);
-      })
-      .finally(() => {
-        this.onEnd();
-      });
+    return this.process(super.delete(url, options), options);
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
-    this.onStart();
-
-    return super.post(url, body, options)
-      .catch(this.onCatch)
-      .do((res: Response) => {
-        this.onSuccess(options);
-      }, (error: any) => {
-        this.onError(options);
-      })
-      .finally(() => {
-        this.onEnd();
-      });
+    return this.process(super.post(url, body, options), options);
   }
 
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
-    this.onStart();
-
-    return super.put(url, body, options)
-      .catch(this.onCatch)
-      .do((res: Response) => {
-        this.onSuccess(options);
-      }, (error: any) => {
-        this.onError(options);
-      })
-      .finally(() => {
-        this.onEnd();
-      });
+    return this.process(super.put(url, body, options), options);
   }
 
 }

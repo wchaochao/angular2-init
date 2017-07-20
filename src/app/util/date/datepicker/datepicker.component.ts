@@ -17,6 +17,8 @@ export class DatepickerComponent implements OnInit {
   }
 
   @Input() addClass = '';
+  @Input() required = false;
+
   @Input()
   set date(date: any) {
     this._model = this.convertToModel(date);
@@ -34,7 +36,11 @@ export class DatepickerComponent implements OnInit {
   }
 
   convertToModel(date: any): any {
-    if (date instanceof Date) {
+    if (typeof date === 'string') {
+      date = new Date(date);
+    }
+
+    if (date instanceof Date && !isNaN(+date)) {
       return {
         year: date.getFullYear(),
         month: date.getMonth() + 1,

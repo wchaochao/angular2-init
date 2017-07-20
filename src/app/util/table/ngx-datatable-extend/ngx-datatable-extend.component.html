@@ -1,6 +1,6 @@
 <ngx-datatable #ngxTable [rows]="rows" [columns]="columns" [columnMode]="columnMode" [headerHeight]="headerHeight"
   [footerHeight]="footerHeight" [rowHeight]="rowHeight" [externalPaging]="true" [externalSorting]="true" [limit]="page.limit" [count]="page.count"
-  [offset]="page.offset" [messages]="messages" (page)="setPage($event)">
+  [offset]="page.offset" [messages]="messages" (page)="setPage($event)" [selectionType]="selectionType" [selected]="selected" (select)="onSelect($event)">
   <ngx-datatable-footer>
     <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
       let-curPage="curPage" let-offset="offset">

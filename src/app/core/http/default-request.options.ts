@@ -9,3 +9,8 @@ export class DefaultRequestOptions extends BaseRequestOptions {
   });
 
 }
+
+export const RequestOptionsProvider = {
+  provide: RequestOptions,
+  useClass: DefaultRequestOptions
+};

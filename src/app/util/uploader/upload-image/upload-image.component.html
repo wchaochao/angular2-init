@@ -1,0 +1,29 @@
+<div class="uploader">
+  <div class="uploader-items clearfix">
+    <div class="uploader-item" *ngFor="let file of files" (click)="preview(file)">
+      <img src="{{file.url}}" alt="图片">
+      <h5 title="{{file.name}}">{{file.name}}</h5>
+      <div class="uploader-operate text-danger" (click)="onDelete(file,$event)">
+        <i class="fa fa-lg fa-trash-o" title="删除"></i>
+      </div>
+    </div>
+
+    <div class="uploader-add"></div>
+  </div>
+
+  <div class="uploader-progress">
+    <div class="row mb-2" *ngFor="let file of queues">
+      <label class="col-sm-2 col-form-label" title="{{file.name}}">{{file.name}}</label>
+      <div class="col-sm-7">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped" [ngClass]="{'bg-info':file.status===FileStatus.progress,'bg-danger':file.status===FileStatus.error}"
+            [ngStyle]="{'width':file.percentage}">{{file.status===FileStatus.error?'上传失败':file.percentage}}</div>
+        </div>
+      </div>
+      <div class="col-sm-3" *ngIf="file.status===FileStatus.error">
+        <button class="btn btn-info mr-3" (click)="reupload(file)">重新上传</button>
+        <button class="btn btn-warning" (click)="cancel(file)">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,15 @@ html {
   font-size: 14px;
 }
 
+a {
+  color: #31b0d5;
+}
+
+a:hover,
+a:focus {
+  color: #2aabd2;
+}
+
 
 /* background */
 
@@ -41,11 +50,124 @@ button {
   cursor: pointer;
 }
 
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42A948;
+}
+
+input.ng-invalid:not([ngbDatepicker]),
+input.ng-invalid[ngbDatepicker][required],
+select.ng-invalid {
+  border-left: 5px solid #a94442;
+}
+
+
+/*alert*/
+
+.alert-warning-custom {
+  border-left: 4px solid #FFC193;
+  font-size: 0.8rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+
+/* navbar */
+
+.navbar-inverse .navbar-nav span.nav-link {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 
 /* card */
 
 .card-header+.list-group {
   margin-top: -1px;
+}
+
+div.card-header .btn {
+  margin: -0.5rem 0;
+}
+
+.card-white {
+  border: 0;
+  margin-bottom: 20px;
+}
+
+.card-white>.card-header {
+  background: transparent;
+  font-size: 1.15rem;
+  padding: 0.75rem 1rem;
+  line-height: 1.1;
+}
+
+.card-white>.card-footer {
+  background: transparent;
+}
+
+.card .detail-info {
+  padding: 0.75rem 0;
+}
+
+.card>.detail-info:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.card>div>.detail-info:nth-child(odd) {
+  background: #f8f8f8;
+}
+
+.card-pl-5>.card-header,
+.card-pl-5>.card-footer {
+  padding-left: 5.5rem;
+}
+
+.card-pl-5 .detail-info {
+  padding-left: 5.5rem;
+}
+
+
+/* table */
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table-detail,
+.table-bordered-custom {
+  border: 1px solid #ddd;
+  border-radius: 0.25em;
+}
+
+.table-detail th,
+.table-detail td {
+  padding: 8px;
+  line-height: 1.42857143;
+  border: 1px solid #ddd;
+}
+
+.table-bordered-custom th,
+.table-bordered-custom td {
+  padding: 8px;
+  line-height: 1.42857143;
+  border-bottom: 1px solid #ddd;
+  border-top: 0;
+}
+
+.table-bordered-custom thead th,
+.table-bordered-custom thead td {
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-bordered-custom tbody tr:nth-of-type(even) {
+  background-color: #f8f8f8;
+}
+
+.table-bordered-custom tbody+tbody {
+  border-top: 1px solid #ddd;
 }
 
 
@@ -128,159 +250,68 @@ body {
 }
 
 
-/* ngx-datatable */
+/* tab-line */
 
-.ngx-datatable {
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.tab-line>.nav-tabs {
+  background: #f8f8f8;
+  border-bottom: 0.2rem solid transparent;
+  padding-left: 5rem;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
-.ngx-datatable .datatable-header,
-.ngx-datatable .datatable-body .datatable-row-wrapper:nth-child(even) {
-  background: #f9f9f9;
+.tab-line .nav-item {
+  margin-bottom: -0.2rem;
+  margin-right: 5rem;
 }
 
-.ngx-datatable .datatable-header .datatable-header-cell,
-.ngx-datatable .datatable-body .datatable-body-cell,
-.ngx-datatable .datatable-body .empty-row {
-  padding: 8px;
-  line-height: 1.42857143;
-  border-bottom: 1px solid #ddd;
+.tab-line .nav-link {
+  border: 0;
+  background: transparent;
+  color: #292b2c;
+  padding: 0.5rem 1.75rem 0.3rem;
 }
 
-.ngx-datatable .datatable-body .empty-row {
-  text-align: center;
-  color: #777;
+.tab-line .nav-link.active,
+.tab-line .nav-item.show .nav-link {
+  background: transparent;
+  color: #31b0d5;
+  border-bottom: 0.2rem solid #31b0d5;
 }
 
-.ngx-datatable .datatable-body .progress-linear {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 5px;
-  padding: 0;
-  margin: 0;
-  position: absolute;
+
+/* login */
+
+.login-card {
+  width: 300px;
+  padding-top: 50px;
+  color: #666
 }
 
-.ngx-datatable .datatable-body .progress-linear .container {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 5px;
-  -webkit-transform: translate(0, 0) scale(1, 1);
-  transform: translate(0, 0) scale(1, 1);
-  background-color: #aad1f9;
+.login-card .card {
+  box-shadow: 0 4px 6px #ddd;
 }
 
-.ngx-datatable .datatable-body .progress-linear .container .bar {
-  transition: all .2s linear;
-  -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
-  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
-  transition: -webkit-transform .2s linear;
-  transition: transform .2s linear;
-  transition: transform .2s linear, -webkit-transform .2s linear;
-  background-color: #106cc8;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 5px;
+.login-card .card-header {
+  border: 0
 }
 
-.ngx-datatable .datatable-footer {
-  font-size: 14px;
-  padding: 0 10px;
-  margin-top: -5px
+.login-card .card-block {
+  padding-top: 40px;
 }
 
-.ngx-datatable .datatable-footer .clearfix {
-  width: 100%
+.login-card .form-group {
+  margin: 0
 }
 
-.ngx-datatable .datatable-footer .pull-left {
-  line-height: 50px;
+.login-card .placeholder {
+  height: 33px;
+  line-height: 33px;
 }
 
-.ngx-datatable .datatable-footer .pull-right {
-  padding-top: 8px;
-  margin-left: 20px;
+.login-card a {
+  color: #666;
 }
 
-.ngx-datatable .datatable-footer .pull-right .form-control {
-  display: inline-block;
-  width: auto;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager,
-.ngx-datatable .datatable-footer .datatable-pager .pager li {
-  display: inline !important;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li a {
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: -1px;
-  line-height: 1.42857143;
-  color: #428bca;
-  text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 0;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li a:hover,
-.ngx-datatable .datatable-footer .datatable-pager .pager li a:focus {
-  color: #2a6496;
-  background-color: #eee;
-  border-color: #ddd;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li:first-child a {
-  margin-left: 0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li:last-child a {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li.active a,
-.ngx-datatable .datatable-footer .datatable-pager .pager li.active a:hover,
-.ngx-datatable .datatable-footer .datatable-pager .pager li.active a:focus {
-  z-index: 2;
-  color: #fff;
-  cursor: default;
-  background-color: #428bca;
-  border-color: #428bca;
-}
-
-.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a,
-.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:hover,
-.ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:focus {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-  border-color: #ddd;
-}
-
-.datatable-icon-left:before {
-  content: "上一页";
-}
-
-.datatable-icon-right:before {
-  content: "下一页";
-}
-
-.datatable-icon-prev:before {
-  content: "首页";
-}
-
-.datatable-icon-skip:before {
-  content: "尾页";
+.login-card a:hover {
+  color: #0275d8
 }

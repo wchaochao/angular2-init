@@ -1,0 +1,17 @@
+.footer {
+  /*position: absolute;
+  bottom: 0;
+  width: 100%;*/
+  background-color: #292b2c;
+  color: #eee;
+  line-height: 30px;
+  padding: 1rem;
+}
+
+.footer a {
+  color: #eee;
+}
+
+.footer a:hover {
+  color: #5bc0de
+}

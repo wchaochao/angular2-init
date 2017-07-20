@@ -1,0 +1,181 @@
+:host /deep/ .ngx-datatable {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+:host /deep/ .ngx-datatable .datatable-header,
+:host /deep/ .ngx-datatable .datatable-body .datatable-row-wrapper:nth-child(even) {
+  background: #f9f9f9;
+}
+
+:host /deep/ .ngx-datatable .datatable-row-left,
+:host /deep/ .ngx-datatable .datatable-row-center,
+:host /deep/ .ngx-datatable .datatable-row-right,
+:host /deep/ .ngx-datatable .datatable-body .empty-row {
+  border-bottom: 1px solid #ddd;
+}
+
+:host /deep/ .ngx-datatable .datatable-header .datatable-header-cell,
+:host /deep/ .ngx-datatable .datatable-body .datatable-body-cell,
+:host /deep/ .ngx-datatable .datatable-body .empty-row {
+  padding: 8px;
+  line-height: 1.42857143;
+}
+
+:host /deep/ .ngx-datatable .datatable-body .empty-row {
+  text-align: center;
+  color: #777;
+}
+
+:host /deep/ .ngx-datatable .datatable-body .datatable-body-cell-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:host /deep/ .ngx-datatable .datatable-body .progress-linear {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+:host /deep/ .ngx-datatable .datatable-body .progress-linear .container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  -webkit-transform: translate(0, 0) scale(1, 1);
+  transform: translate(0, 0) scale(1, 1);
+  background-color: #aad1f9;
+}
+
+:host /deep/ .ngx-datatable .datatable-body .progress-linear .container .bar {
+  transition: all .2s linear;
+  -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: -webkit-transform .2s linear;
+  transition: transform .2s linear;
+  transition: transform .2s linear, -webkit-transform .2s linear;
+  background-color: #106cc8;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer {
+  font-size: 14px;
+  padding: 0 10px;
+  margin-top: -5px
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .clearfix {
+  width: 100%
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .pull-left {
+  line-height: 50px;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .pull-right {
+  padding-top: 8px;
+  margin-left: 20px;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .pull-right .form-control {
+  display: inline-block;
+  width: auto;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li {
+  display: inline !important;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li a {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #428bca;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li a:hover,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li a:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li:first-child a {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li:last-child a {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.active a,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.active a:hover,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.active a:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:hover,
+:host /deep/ .ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+:host /deep/ .datatable-icon-left:before {
+  content: "上一页";
+}
+
+:host /deep/ .datatable-icon-right:before {
+  content: "下一页";
+}
+
+:host /deep/ .datatable-icon-prev:before {
+  content: "首页";
+}
+
+:host /deep/ .datatable-icon-skip:before {
+  content: "尾页";
+}
+
+:host /deep/ .datatable-checkbox {
+  padding: 0 0 0 8px;
+}
+
+:host /deep/ .datatable-checkbox input[type='checkbox']:before {
+  border: 1px solid #aaa;
+}
+
+:host /deep/ .datatable-checkbox input[type='checkbox']:checked:before {
+  border-color: #009688;
+  border-width: 2px;
+  border-top-style: none;
+  border-right-style: none;
+}

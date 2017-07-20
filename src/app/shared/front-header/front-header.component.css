@@ -1,0 +1,10 @@
+.header-nav .nav-link {
+  color: #666;
+  font-size: 1.25rem;
+  border-bottom:3px solid transparent;
+}
+
+.header-nav .nav-link:hover {
+  border-bottom: 3px solid #0275d8;
+  color: #0275d8;
+}

@@ -1,0 +1,81 @@
+:host /deep/ .uploader {
+  padding: 15px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+:host /deep/ .uploader h5,
+:host /deep/ .uploader label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+:host /deep/ .uploader h5 {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+:host /deep/ .uploader-item {
+  position: relative;
+  float: left;
+  width: 180px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid transparent;
+  cursor:zoom-in;
+}
+
+:host /deep/ .uploader-item:hover {
+  border: 1px solid #abd6ea;
+  background: #e6f3fc;
+}
+
+:host /deep/ .uploader-operate {
+  line-height: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+:host /deep/ .uploader-item:hover .uploader-operate {
+  display: block;
+}
+
+:host /deep/ .uploader-item>img {
+  width: 100px;
+  height: 100px;
+}
+
+:host /deep/ .uploader-add {
+  float: left;
+  height: 168px;
+}
+
+:host /deep/ .uploader-add>.webuploader-pick {
+  padding: 0;
+  color: #333;
+  background: transparent;
+}
+
+:host /deep/ .webuploader-pick-hover .uploader-item {
+  border: 1px solid #abd6ea;
+  background: #e6f3fc;
+}
+
+:host /deep/ .uploader-add label {
+  margin-bottom: 0;
+}
+
+:host /deep/ .uploader-progress .col-sm-7 {
+  padding: 8px 15px;
+}
+
+:host /deep/ .uploader-progress>div:first-child {
+  margin-top: 20px;
+}

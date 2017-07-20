@@ -1,5 +1,6 @@
 <div class="input-group {{addClass}}" (appClickOutside)="d.close()">
-  <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+  <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+    [required]="required">
   <div class="input-group-btn" (click)="d.toggle()">
     <button class="btn btn-secondary">
       <span class="fa fa-calendar"></span>

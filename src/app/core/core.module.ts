@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { FlashMessageComponent } from './flash-message/flash-message.component';
 
-import { LoaderService } from './loader/loader.service';
 import { FlashMessageService } from './flash-message/flash-message.service';
-import { RequestOptionsProvider, HttpServiceProvider } from './http/http-service.provider';
+import { LoaderService } from './loader/loader.service';
+import { RequestOptionsProvider } from './http/default-request.options';
+import { HttpService } from './http/http.service';
 import { JsonHttpHelperService } from './http/json-http-helper.service';
 import { ApiUrlService } from './config/api-url.service';
 import { I18nService } from './i18n/i18n.service';
@@ -21,14 +22,14 @@ import { UsercpGuard } from './guards/usercp.guard';
     FlashMessageComponent
   ],
   providers: [
-    LoaderService,
     FlashMessageService,
+    LoaderService,
     RequestOptionsProvider,
-    HttpServiceProvider,
+    HttpService,
     JsonHttpHelperService,
     ApiUrlService,
     I18nService,
-    UsercpGuard
+    UsercpGuard,
   ],
   exports: [
     LoaderComponent,
